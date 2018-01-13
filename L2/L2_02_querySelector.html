@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Page Title</title>
+  </head>
+  <body>
+    <div>
+      <p class="box">This is a box</p>
+    </div>
+    <script>
+      var box1 = document.querySelector("p.box");
+      console.log(box1.innerHTML);
+      
+      var box2 = document.querySelector("div > p");
+      console.log(box2.innerHTML);
+    </script> 
+  </body>
+</html>
