@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Page Title</title>
+    <script>
+    function validate() {
+      var code = document.getElementById("nric").value;
+      return;
+      if (code == "") {
+        alert("內容是空的，發出警告!");
+      } else if (!isNaN(code)) {
+        alert("內容不能是數字，發出警告!"); 
+      } else if (code.length != 10) {
+        alert("內容的長度不正確，發出警告!");
+      }
+    }
+    </script> 
+  </head>
+  <body>
+    <form>
+      <input type="text" id="nric">
+      <input type="button" value="驗證" onclick="validate()">
+      <p></p>
+    </form>
+  </body>
+</html>
