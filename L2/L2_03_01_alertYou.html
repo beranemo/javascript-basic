@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Page Title</title>
+  </head>
+  <body>
+    <script>
+      function alertYou() {
+        alert("A Button is Clicked!");
+      }
+    </script>
+    <button onclick="alertYou()">Click me</button>
+    <br />
+    <!-- Click me 前後加空白是不會顯示出來的 -->
+    <button onclick="alertYou()"> Click me </button>
+    <br />
+    <button onclick="alertYou()">&nbsp;Click me&nbsp;</button>
+    
+  </body>
+</html>
