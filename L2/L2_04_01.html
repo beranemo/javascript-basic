@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Page Title</title>
+    <script>
+      var state = true;
+      var on = "https://lh3.googleusercontent.com/DwTOGJLORYo4gZ5hyksarVOSpw8rOiePWmsAY5DY6qmGf40SZRNTJmu1RZN5NNKT_IturHkh4xdX633xj1CX=w1229-h703-rw";
+      var off = "https://lh6.googleusercontent.com/KVzC2V4npkWXJCG9ypOwhJyVJYmTx7KnJqhYcCEkAoK6OZWRMc-KS-N7mFdt2k5sVHXPwOAteNH7OG_wR3FZ=w1229-h703-rw"
+      function toggleLight() {
+        var imgA = document.getElementById("imageA");
+        if (state) {
+          imgA.src = off;
+        }else {
+          imgA.src = on;
+        }
+        state = !state;
+      }
+      
+      var timeLeft = 5;
+      function countDownTimer() {
+        timeLeft = timeLeft - 1;
+        if (timeLeft <= 0) {
+          document.getElementById("imageA").src = off; // 下面那行是相同形式
+          // imageA.src = off; /* 因為在 HTML 有給 id 了，所以其實這樣直接就捉的到了 */
+          clearInterval(setting);
+        }
+        document.getElementById("timer").innerHTML = timeLeft; // 下面那行是相同形式
+        // timer.innerHTML = timeLeft; /* 因為在 HTML 有給 id 了，所以其實這樣直接就捉的到了 */
+      }
+      var setting = setInterval(countDownTimer, 1000);
+    </script> 
+  </head>
+  <body>
+    <img id="imageA" src="https://lh3.googleusercontent.com/DwTOGJLORYo4gZ5hyksarVOSpw8rOiePWmsAY5DY6qmGf40SZRNTJmu1RZN5NNKT_IturHkh4xdX633xj1CX=w1229-h703-rw" alt="">
+    <button class="button" onclick="toggleLight();">ON<br>-<br>OFF</button>
+    <div class="div" id="timer">5</div>
+  </body>
+</html>
