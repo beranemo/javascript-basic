@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <div id="container"/>
+    <script>
+      var div = document.createElement("div");
+      div.innerHTML = "Some Content";
+      // div.textContent = "Some Content";
+      var container = document.getElementById("container");
+      container.appendChild(div);
+    </script>   
+  </body>
+</html>
