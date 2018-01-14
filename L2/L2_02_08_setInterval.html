@@ -6,11 +6,12 @@
   </head>
   <body>
     <script>
-      var id = setInterval(start,1000); 
-      function start(){
-  console.log("1 秒過去了!");
-}
-
+      setInterval(start, 1000);
+      var i = 1;
+      function start() {
+        console.log(i + "秒過去了");
+        i++;
+      } 
     </script> 
   </body>
 </html>
