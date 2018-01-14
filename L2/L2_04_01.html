@@ -22,11 +22,11 @@
         timeLeft = timeLeft - 1;
         if (timeLeft <= 0) {
           document.getElementById("imageA").src = off; // 下面那行是相同形式
-          // imageA.src = off; /* 因為在 HTML 有給 id 了，所以其實這樣直接就捉的到了 */
+          // window.imageA.src = off; /* 因為在 HTML 有給 id 了，所以其實這樣直接就捉的到了 */
           clearInterval(setting);
         }
         document.getElementById("timer").innerHTML = timeLeft; // 下面那行是相同形式
-        // timer.innerHTML = timeLeft; /* 因為在 HTML 有給 id 了，所以其實這樣直接就捉的到了 */
+        // window.timer.innerHTML = timeLeft; /* 因為在 HTML 有給 id 了，所以其實這樣直接就捉的到了 */
       }
       var setting = setInterval(countDownTimer, 1000);
     </script> 
