@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>操作 HTML 元素 - (1) Add, Delete, Replace</title>
+    <!-- CSS 風格並不包含在教學裡 -->
+    <style>
+      .box{
+        margin:0px auto;
+        padding-left: 40px; 
+        border:2px solid #ccc;
+        border-radius: 15px; 
+        width:640px;
+      }
+    </style>
+    <script>
+    "use strict";
+    // 在 container 裡新增 element，新增的內容是「一篇廢文」
+    function addText(){
+      var container = document.getElementById("container");  // 透過 id 獲得 container
+      var div = document.createElement("div");  // 首先使用 document 的 createElement 方法創建一個 div element
+      div.innerHTML = "一篇廢文";       // 設定其內容為「一篇廢文」
+      container.appendChild(div);     // 把這個加入 container 內資料的最末端
+    }
+    // 刪除 container 裡最後一個 childNode
+    function delText(){
+      var container = document.getElementById("container"); // 透過 id 獲得 container
+      var child = container.lastChild;  // 透過屬性 lastChild 獲得最後一個 childNode，存入變數 child 裡
+      if(child) { // 如果該 childNode 存在（有可能已經刪除完了），就移除 childNode
+        container.removeChild(child); 
+      }
+    }
+    // 把 container 用一個新創建的 container 取代，將新 container 的 css style 和 id 設定得和舊的一樣
+    function replaceDiv(){
+      var container = document.getElementById("container"); // 透過 id 獲得 container
+      var newContainer = document.createElement("div");     // 創建新的 div container 
+      newContainer.innerHTML = "取代原本的 div container!";  // 設定好新的 container 的內容
+      newContainer.className = container.className;                      // 設定 class，因此擁有之前設定的 css style
+      newContainer.id = container.id;                     // 獲得 id 名稱 
+      container.parentNode.replaceChild(newContainer,container);  // 透過原本的 container，使用 container 的 parentNode，用 newContainer 取代 container
+    }
+    </script>
+  </head>
+  <body>
+    <div style="margin:0px auto;padding-left: 40px; width:720px">
+      <button class="button button" onclick="addText()">新增一篇廢文</button>
+      <button class="button button2" onclick="delText()">刪除一篇廢文</button>
+      <button class="button button3" onclick="replaceDiv()">取代整個DIV</button>
+    </div>
+    <br>
+    <div id="container" class="box">
+      <div>A</div>
+      <div>B</div>
+      <div>C</div>
+    </div>
+  </body>
+</html>

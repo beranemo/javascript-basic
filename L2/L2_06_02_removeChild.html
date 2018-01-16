@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <div id="container">
+      <button onclick="delText()">刪除一篇廢文</button>
+      <div>A</div>
+      <div>B</div>
+      <div>C</div>
+    </div>
+    <script>
+    var i = 1;  
+    function delText() {
+      var container = document.getElementById("container"); 
+      var child = container.lastChild;  
+      if (child) { 
+        console.log('delete: 這是第'+ i +'次跑進來');
+        container.removeChild(child);
+      } else {
+        console.log('NOT delete');
+      }
+      i++;
+    }
+    </script>   
+  </body>
+</html>
