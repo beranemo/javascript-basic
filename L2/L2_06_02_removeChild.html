@@ -11,18 +11,29 @@
       <div>C</div>
     </div>
     <script>
-    var i = 1;  
     function delText() {
       var container = document.getElementById("container"); 
-      var child = container.lastChild;  
-      if (child) { 
-        console.log('delete: 這是第'+ i +'次跑進來');
-        container.removeChild(child);
-      } else {
-        console.log('NOT delete');
-      }
-      i++;
+      removeLastChild(container);
     }
+      
+    function is_all_ws(node){ 
+      return !(/[^\t\n\r ]/.test(node.data));
+    }  
+      
+    function removeLastChild(x) {
+      var child = x.lastChild;
+      if (child) { 
+        if (is_all_ws(child)) {
+          x.removeChild(child);
+          var child = x.lastChild;
+          if (child){
+            x.removeChild(child);
+          }
+        }else{
+          x.removeChild(child);
+        }
+      }
+    }  
     </script>   
   </body>
 </html>
