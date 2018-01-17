@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+   <div id="container">
+    <div>A</div>
+    <div>B</div>
+    <div>C</div>
+    <script>
+      var newContainer = document.createElement("div");
+      newContainer.innerHTML = "取代原本的 div container";
+      
+      var originContainer = document.getElementById("container");
+      newContainer.id = originContainer.id;
+      newContainer.className = originContainer.className;
+      
+      originContainer.parentNode.replaceChild(newContainer, originContainer);
+    </script> 
+   </div>    
+  </body>
+</html>
