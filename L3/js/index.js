@@ -31,6 +31,12 @@ class BaseCharacter {
 class Hero extends BaseCharacter {
   constructor(name, hp, ap) {
     super(name, hp, ap);
+    
+    this.element = document.getElementById("hero-image-block");
+    this.hpElement = document.getElementById("hero-hp");
+    this.maxHpElement = document.getElementById("hero-max-hp");
+    this.hurtElement = document.getElementById("hero-hp-hurt");
+    
     console.log("召喚英雄 " + this.name + "！");
   }
   attack(character) {
