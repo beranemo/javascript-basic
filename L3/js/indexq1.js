@@ -182,6 +182,11 @@ function heroHeal() {
   setTimeout(function() {
     hero.heal();
   }, 100);
+  
+  /* 設定 0.6 秒後, 技能區按鈕出現 */
+  setTimeout(function() {
+    document.getElementsByClassName("skill-block")[0].style.display = "block";
+  }, 600);
 }
 
 var rounds = 10;
