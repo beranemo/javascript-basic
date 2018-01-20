@@ -79,8 +79,8 @@ class Hero extends BaseCharacter {
   heal() {
     console.log("hp++");
     this.hp += 30;
-    if (this.hp > 130 ) {
-      this.hp = 130;
+    if (this.hp > this.maxHp ) {
+      this.hp = this.maxHp;
     }
     this.updateHtml(this.hpElement, this.hurtElement);
   }
@@ -183,9 +183,18 @@ function heroHeal() {
     hero.heal();
   }, 100);
   
-  /* 設定 0.6 秒後, 技能區按鈕出現 */
   setTimeout(function() {
-    document.getElementsByClassName("skill-block")[0].style.display = "block";
+    monster.element.classList.add("attacking");
+    setTimeout(function() {
+      monster.attack(hero);
+      monster.element.classList.remove("attacking");
+      endTurn();
+      if (hero.alive == false) {
+        finish();
+      } else {
+        document.getElementsByClassName("skill-block")[0].style.display = "block";
+      }
+    }, 500);      
   }, 600);
 }
 
