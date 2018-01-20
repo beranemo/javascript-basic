@@ -83,3 +83,12 @@ class Monster extends BaseCharacter {
 
 var hero = new Hero("Bernard", 130, 30);
 var monster = new Monster("Skeleton", 130, 10);
+
+/* 點擊技能後可以攻擊 */
+function addSkillEvent() {
+  var skill = document.getElementById("skill");
+  skill.onclick = function() { 
+    
+  }
+}
+addSkillEvent();
