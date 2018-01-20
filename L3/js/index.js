@@ -88,7 +88,11 @@ var monster = new Monster("Skeleton", 130, 10);
 function addSkillEvent() {
   var skill = document.getElementById("skill");
   skill.onclick = function() { 
-    
+    heroAttack();
   }
 }
 addSkillEvent();
+
+function heroAttack() {
+  
+}
