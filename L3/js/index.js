@@ -62,6 +62,10 @@ class Monster extends BaseCharacter {
     var damage = Math.random() * (this.ap / 2) + (this.ap / 2);
     super.attack(character, Math.floor(damage));
   }
+  getHurt(damage) {
+    super.getHurt(damage);
+    this.updateHtml(this.hpElement, this.hurtElement);
+  }  
 }
 
 var hero = new Hero("Bernard", 130, 30);
