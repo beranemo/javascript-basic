@@ -200,7 +200,22 @@ function heroHeal() {
         document.getElementsByClassName("skill-block")[0].style.display = "block";
       }
     }, 500);      
-  }, 600);
+  }, 600); 
+  
+  var i = 0;
+  var id = setInterval(function() {  
+    if (i == 1) {
+      document.getElementsByClassName("effect-image")[0].style.display = "block";
+    }
+    if (i >= 1){
+      document.getElementsByClassName("effect-image")[0].src = 'images/effect/heal/'+ i +'.png';
+    }
+    i++;
+    if (i > 8) {
+      document.getElementsByClassName("effect-image")[0].style.display = "none";
+      clearInterval(id);
+    }
+  }, 50);  
 }
 
 var rounds = 10;
