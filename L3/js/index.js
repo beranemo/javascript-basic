@@ -100,11 +100,16 @@ function heroAttack() {
   /* 設定英雄按下技能 0.1 秒後往前移動 */
   setTimeout(function() {
     hero.element.classList.add("attacking");
-  }, 1000);
+  }, 100);
   
   /* 設定 0.5 秒後英雄攻擊怪物 */ 
   setTimeout(function() {
     hero.attack(monster);
   }, 500);
+  
+  /* 設定 0.6 秒時英雄往回移動 */
+  setTimeout(function() {
+    hero.element.classList.remove("attacking");
+  }, 600);
   
 }
