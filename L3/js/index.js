@@ -97,9 +97,14 @@ function heroAttack() {
   /* 當按下時，把它隱藏掉，避免再次觸擊 */
   document.getElementsByClassName("skill-block")[0].style.display = "none";
   
-  /* 設定英雄往前移動 */
+  /* 設定英雄按下技能 0.1 秒後往前移動 */
   setTimeout(function() {
     hero.element.classList.add("attacking");
-  }, 100);
+  }, 1000);
+  
+  /* 設定 0.5 秒後英雄攻擊怪物 */ 
+  setTimeout(function() {
+    hero.attack(monster);
+  }, 500);
   
 }
