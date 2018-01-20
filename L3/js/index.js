@@ -163,3 +163,13 @@ function endTurn() {
     // 「遊戲結束」空白區
   }
 }
+
+function finish() {
+  var dialog = document.getElementById("dialog")
+  dialog.style.display = "block";
+  if (monster.alive == false) {
+    dialog.classList.add("win");
+  } else {
+    dialog.classList.add("lose");
+  }
+}
