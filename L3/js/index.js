@@ -120,6 +120,7 @@ function heroAttack() {
       setTimeout(function() {
         monster.attack(hero);
         monster.element.classList.remove("attacking");
+        endTurn();
         if (hero.alive == false) {
           // 「遊戲結束」空白區
         } else {
@@ -131,4 +132,13 @@ function heroAttack() {
     }
   }, 1100);
   
+}
+
+var rounds = 10;
+function endTurn() {
+  rounds--;
+  document.getElementById("round-num").textContent = rounds;
+  if (rounds < 1) {
+    // 「遊戲結束」空白區
+  }
 }
