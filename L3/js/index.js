@@ -20,6 +20,23 @@ class BaseCharacter {
     if (this.hp <= 0) { 
       this.die();
     }
+    
+    var _this = this;
+    console.log(_this.name + " 受傷了");
+    
+    var i = 1;
+    _this.id = setInterval(function() {
+      
+      if (i == 1) {
+        _this.element.getElementsByClassName("effect-image")[0].style.display = "block";
+      }
+      _this.element.getElementsByClassName("effect-image")[0].src = 'images/effect/blade/'+ i +'.png';
+      i++;
+      if (i > 8) {
+        _this.element.getElementsByClassName("effect-image")[0].style.display = "none";
+        clearInterval(_this.id);
+      }
+    }, 50);
   }
   
   die() {
