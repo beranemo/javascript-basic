@@ -23,7 +23,7 @@ class BaseCharacter {
     
     var _this = this;
     console.log(_this.name + " 受傷了");
-    
+    console.log(_this.element.getElementsByClassName("hurt-text")[0]);
     var i = 1;
     _this.id = setInterval(function() {
       
@@ -181,7 +181,16 @@ function heroHeal() {
   /* 設定 0.1 秒後英雄自身恢復 hp */ 
   setTimeout(function() {
     hero.heal();
+    document.getElementsByClassName("heal-text")[0].textContent = 30;
+    document.getElementsByClassName("heal-text")[0].classList.add("attacked");
   }, 100);
+  
+  /* 設定 0.5 秒後英雄自身恢復 hp 數字不見 */ 
+  setTimeout(function() {
+    hero.heal();
+    document.getElementsByClassName("heal-text")[0].textContent = "";
+    document.getElementsByClassName("heal-text")[0].classList.remove("attacked");
+  }, 500);
   
   setTimeout(function() {
     monster.element.classList.add("attacking");
