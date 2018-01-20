@@ -112,4 +112,13 @@ function heroAttack() {
     hero.element.classList.remove("attacking");
   }, 600);
   
+  setTimeout(function() {
+    console.log("判定")
+    if (monster.alive) {
+      // 怪物還活著，換怪物攻擊
+    } else {
+      // 「遊戲結束」空白區
+    }
+  }, 1100);
+  
 }
