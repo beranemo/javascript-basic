@@ -144,12 +144,14 @@ function heroAttack() {
         endTurn();
         if (hero.alive == false) {
           // 「遊戲結束」空白區
+          finish();
         } else {
           document.getElementsByClassName("skill-block")[0].style.display = "block";
         }
       }, 500);      
     } else {
       // 「遊戲結束」空白區
+      finish();
     }
   }, 1100);
   
@@ -161,6 +163,7 @@ function endTurn() {
   document.getElementById("round-num").textContent = rounds;
   if (rounds < 1) {
     // 「遊戲結束」空白區
+    finish();
   }
 }
 
