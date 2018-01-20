@@ -116,6 +116,16 @@ function heroAttack() {
     console.log("判定")
     if (monster.alive) {
       // 怪物還活著，換怪物攻擊
+      monster.element.classList.add("attacking");
+      setTimeout(function() {
+        monster.attack(hero);
+        monster.element.classList.remove("attacking");
+        if (hero.alive == false) {
+          // 「遊戲結束」空白區
+        } else {
+          document.getElementsByClassName("skill-block")[0].style.display = "block";
+        }
+      }, 500);      
     } else {
       // 「遊戲結束」空白區
     }
