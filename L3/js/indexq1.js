@@ -75,7 +75,15 @@ class Hero extends BaseCharacter {
   getHurt(damage) {
     super.getHurt(damage);
     this.updateHtml(this.hpElement, this.hurtElement);
-  }  
+  }
+  heal() {
+    console.log("hp++");
+    this.hp += 30;
+    if (this.hp > 130 ) {
+      this.hp = 130;
+    }
+    this.updateHtml(this.hpElement, this.hurtElement);
+  }
 }
 
 class Monster extends BaseCharacter {
@@ -113,6 +121,15 @@ function addSkillEvent() {
   }
 }
 addSkillEvent();
+
+/* 點擊恢復技能後可以恢復 hp 30 */
+function addHealEvent() {
+  var heal = document.getElementById("heal");
+  heal.onclick = function() { 
+    heroHeal();
+  }
+}
+addHealEvent();
 
 function heroAttack() {
   /* 當按下時，把它隱藏掉，避免再次觸擊 */
@@ -155,6 +172,16 @@ function heroAttack() {
     }
   }, 1100);
   
+}
+
+function heroHeal() {
+  /* 當按下時，把它隱藏掉，避免再次觸擊 */
+  document.getElementsByClassName("skill-block")[0].style.display = "none";
+  
+  /* 設定 0.1 秒後英雄自身恢復 hp */ 
+  setTimeout(function() {
+    hero.heal();
+  }, 100);
 }
 
 var rounds = 10;
