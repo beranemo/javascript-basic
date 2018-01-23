@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Page Title</title>
+    <style>
+    .button {
+      margin-left: 10px;
+      display: inline-block;
+      padding: 45px 25px;
+      font-size: 24px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      outline: none;
+      color: #fff;
+      background-color: #1E90FF;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 9px #999;
+    }
+    .button:hover {background-color: #3e8e41}
+    .button:active {
+      background-color: #3e8e41;
+      box-shadow: 0 5px #666;
+      transform: translateY(4px);
+    }
+    .div {
+      margin-left: 10px;
+      padding: 25px 32px;
+      font-size: 24px;
+      text-align: center;
+      color: #fff;
+      background-color: #1E90FF;
+      border-style: solid;
+      border-color: #4bacf2;
+      border-width: 7px;
+    }
+    </style>
+    <script>
+      var state = true;
+      function toggleLight() {
+        var imgA = document.getElementById("imageA");
+        if (state) {
+          imgA.src = "images/off.jpg";
+        }else {
+          imgA.src = "images/on.jpg";
+        }
+        state = !state;
+      }
+      
+      var timeLeft = 5;
+      function countDownTimer() {
+        timeLeft = timeLeft - 1;
+        if (timeLeft <= 0) {
+          document.getElementById("imageA").src = off; // 下面那行是相同形式
+          // window.imageA.src = off; /* 因為在 HTML 有給 id 了，所以其實這樣直接就捉的到了 */
+          clearInterval(setting);
+        }
+        document.getElementById("timer").innerHTML = timeLeft; // 下面那行是相同形式
+        // window.timer.innerHTML = timeLeft; /* 因為在 HTML 有給 id 了，所以其實這樣直接就捉的到了 */
+      }
+      var setting = setInterval(countDownTimer, 1000);
+    </script> 
+  </head>
+  <body>
+    <table style="margin:0px auto;padding: 10px;border:2px solid;border-color:#1E90FF">
+      <tbody>
+      <tr>
+        <td rowspan="2">
+          <!--- 照片 -->
+          <img id="image" src="images/on.jpg" width="400" height="300">
+        </td>
+        <td>
+          <!--- 倒數計時器 -->
+          <div class="div" id="timer">5</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <!--- 開關燈按鈕 -->
+          <button class="button" onclick="toggleLight();">ON<br>-<br>OFF</button>
+        </td>
+      </tr>
+      </tbody>
+    </table> 
+  </body>
+</html>
