@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <title>Q5</title>
+    <script>
+    "use strict";
+    
+    function createToDo() {
+
+      var todo = document.createElement("div");
+      var span = document.createElement("span");
+      var input = document.getElementById("input").value;
+
+      if( input == "" ){
+        input = "廢文一篇";
+      }
+      
+      span.innerHTML = input;
+
+      todo.appendChild(span);
+
+      var replaceButton = document.createElement("button");
+      replaceButton.onclick = function() {
+        var input = document.getElementById("input").value;
+        if( input == "" ) {
+          alert("你並沒有輸入任何文字");
+          return;
+        }
+        this.parentNode.firstChild.innerHTML = input;
+        document.getElementById("input").value = "";
+      }
+      
+      if(window.radioO.checked){
+        span.style.color = "red";
+      }else{
+        span.style.color = "darkgreen";
+      }
+      
+
+      replaceButton.textContent = "R";
+      todo.appendChild(replaceButton);
+
+      var removeButton = document.createElement("button");
+      removeButton.onclick = function() {
+        if(window.confirm("確定更改其字體顏色")) {
+          span.style.color = "red";
+          todo.removeChild(replaceButton);
+          todo.removeChild(removeButton);
+        }
+      }
+
+      removeButton.textContent = "V";
+      todo.appendChild(removeButton);
+
+      document.getElementById("todolist").appendChild(todo);
+      document.getElementById("input").value = "";
+    }
+
+    </script>
+  </head>
+  <body>
+   
+   <form>
+     <input type="radio" id="radioO" value="O" name="xxx" checked="true">
+     <label for="radioO">緊急</label><br>
+     <input type="radio" id="radioX" value="X" name="xxx">
+     <label for="radioX">不緊急</label>
+   </form>
+    <div>
+      <input type="text" id="input">  
+      <button onclick="createToDo()"> + </button>
+      <div id="todolist" ></div>
+    </div>
+  </body>
+</html>
