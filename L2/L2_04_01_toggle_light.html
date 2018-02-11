@@ -4,6 +4,7 @@
     <!-- CSS 風格並不包含在教學裡 -->
     <style>
       .button {
+        width: 100%;
         margin-left: 10px;
         display: inline-block;
         padding: 45px 25px;
@@ -25,6 +26,7 @@
         transform: translateY(4px);
       }
       .div {
+        width: 100%;
         margin-left: 10px;
         padding: 25px 32px;
         font-size: 24px;
@@ -33,21 +35,21 @@
         background-color: #1E90FF;
         border-style: solid;
         border-color: #4bacf2;
-        border-width: 7px;
+        border-width: 1px;
       }
       </style>
   </head>
   <body>
-    <table style="margin:0px auto;padding: 10px;border:2px solid;border-color:#1E90FF">
+    <table style="margin:0px auto;padding: 10px;border:2px solid;border-color:#1E90FF;table-layout:fixed">
       <tbody>
         <tr>
           <td rowspan="2">
             <!--- 照片 -->
             <img id="image" src="images/on.jpg" width="400" height="300">
           </td>
-          <td>
+          <td width='1px'>
             <!--- 倒數計時器 -->
-            <div class="div" id="timer">5</div>
+            <input class="div" id="timer" value="5">
           </td>
         </tr>
         <tr>
