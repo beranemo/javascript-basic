@@ -159,6 +159,7 @@ function heroAttack() {
           // 「遊戲結束」空白區
           finish();
         } else {
+          state_a_down = false;
           document.getElementsByClassName("skill-block")[0].style.display = "block";
         }
       }, 500);      
@@ -197,6 +198,7 @@ function heroHeal() {
       if (hero.alive == false) {
         finish();
       } else {
+        state_d_down = false;   
         document.getElementsByClassName("skill-block")[0].style.display = "block";
       }
     }, 500);      
@@ -238,12 +240,16 @@ function finish() {
   }
 }
 
+var state_a_down = false;
+var state_d_down = false;
 document.onkeyup = function(event) {
   var key = String.fromCharCode(event.keyCode);
-  if (key == "A") {
+  if (key == "A" && !state_a_down) {
+    state_a_down = true;
     heroAttack();
   }
-  if (key == "D") {
+  if (key == "D" && !state_d_down) {
+    state_d_down = true;   
     heroHeal();
   }   
 }
